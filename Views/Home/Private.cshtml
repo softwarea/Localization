@@ -1,0 +1,37 @@
+﻿@model Localization.Models.PrivateViewModel
+
+<h1>@(Localizer["LabelHello"]) @(Model.UserName)</h1>
+
+<form asp-route="ChangeName">
+    <div>
+        <input asp-for="UserName" />
+    </div>
+    <div class="margin-top-small">
+        <button type="submit">Change name</button>
+    </div>
+</form>
+
+<div class="margin-top-large">
+    <form asp-route="ChangeCulture">
+        <div>
+            <input type="radio" id="en" name="CultureName" value="en-US" @(Model.CultureName == "en-US" ? "checked" : null)>
+            <label for="en">English</label>
+        </div>
+        <div>
+            <input type="radio" id="de" name="CultureName" value="de-DE" @(Model.CultureName == "de-DE" ? "checked" : null)>
+            <label for="de">Deutsch</label>
+        </div>
+        <div>
+            <input type="radio" id="fr" name="CultureName" value="fr-FR" @(Model.CultureName == "fr-FR" ? "checked" : null)>
+            <label for="fr">Français</label>
+        </div>
+        <div class="margin-top-small">
+            <button type="submit">Change culture</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="margin-top-large">
+    <a asp-route="Logout">Logout</a>
+</div>
